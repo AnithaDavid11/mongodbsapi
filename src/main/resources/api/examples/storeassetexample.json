@@ -1,0 +1,20 @@
+
+  [{
+      "assetId" : 413256,
+  "assetMimeType" : "image/jpeg",
+  "assetName" : "southdowns_1920x1080.jpg",
+  "status": "New",
+  "expirationDate" : "9999-12-31T23:59:59.9999999+00:00",
+  "assetPayload" : {},
+  "createDate" : "2021-06-11T12:06:00.102Z",
+  "updateDate" : "2022-12-24T12:06:00.123Z"
+  },{ "assetId" : 413257,
+  "assetMimeType" : "image1/jpeg",
+  "assetName" : "southdowns1_1920x1080.jpg",
+  "status": "New",
+  "expirationDate" : "9999-12-31T23:59:59.9999999+00:00",
+  "assetPayload" : {},
+  "createDate" : "2021-05-11T12:06:00.102Z",
+  "updateDate" : "2022-11-24T12:06:00.123Z"}
+  ]
+

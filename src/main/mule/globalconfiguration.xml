@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:os="http://www.mulesoft.org/schema/mule/os"
+	xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/current/mule-mongo.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<mongo:config name="MongoDB_Config" doc:name="MongoDB Config" doc:id="fb5802a7-16e6-4260-81fd-02cea45aa9ff" >
+		<mongo:connection database="db">
+			<mongo:server-addresses >
+				<mongo:server-address host="localhost" />
+			</mongo:server-addresses>
+		</mongo:connection>
+	</mongo:config>
+	<os:config name="ObjectStore_Config" doc:name="ObjectStore Config" doc:id="7967b339-d3c0-4253-a9b2-8ebd2e569302" />
+	<os:object-store name="Object_store" doc:name="Object store" doc:id="f8311d6a-913b-4895-a373-7aafffc9eadd" />
+	<error-handler name="globalconfigurationError_Handler" doc:id="82c25c4b-874d-4cb4-821d-421345db540e" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="d1477b4e-b948-4f03-a6c9-1e270109377c" type="ANY">
+			<logger level="INFO" doc:name="Logger" doc:id="06514976-63e4-4d51-9298-a3a40dccfe81" message="#[error.detailedDescription]"/>
+		</on-error-continue>
+	</error-handler>
+	
+</mule>

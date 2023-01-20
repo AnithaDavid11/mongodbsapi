@@ -1,0 +1,73 @@
+#%RAML 1.0
+title: mongodbsapi
+
+
+/storeasset:
+  post:
+    body:
+      application/json:
+        type: array
+        example: !include examples/storeassetexample.json
+    responses:
+      201:
+        body:
+          application/json:
+            type: object
+            example: !include examples/storeassetresponseexample.json
+
+/getasset:
+   get:
+     responses:
+      200:
+        body:
+          application/json:
+            type: array
+            example:
+               [{
+                    "_id": {
+                   "$oid": "63a9cd0bec9d2063086b961c"
+                 },
+                   "status": "New"
+                  }]
+
+/updateasset:
+  put:
+    body:
+      application/json:
+        type: object
+        example:
+           {
+             "status" : "published",
+             "objectkey" : "metadata/172345678/baileys_packshot.jpeg.json"
+           }
+    responses:
+      200:
+        body:
+          application/json:
+            type: string
+            example: "Your asset is updated"
+
+/getobjectkey:
+  get:
+   responses:
+     200:
+      body:
+        application/json:
+          type: array
+          example: [{
+                      "_id": {
+            "$oid": "63acabde9b45b85a76810dc1"
+                           },
+             "objectkey": "metadata/172345678/baileys_packshot.jpeg.json"
+                   }]
+
+
+/deleteasset:
+  delete:
+    responses:
+      202:
+        body:
+          application/json:
+            type: string
+            example: "Your asset is deleted"
+

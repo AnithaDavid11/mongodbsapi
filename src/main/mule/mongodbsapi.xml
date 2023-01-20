@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
+    <apikit:config name="mongodbsapi-config" api="mongodbsapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <flow name="mongodbsapi-main">
+        <http:listener path="/apimongo/*" config-ref="HTTP_Listener_config_Domain">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="mongodbsapi-config" />
+    </flow>
+    <flow name="mongodbsapi-console">
+        <http:listener path="/consolemongo/*" config-ref="HTTP_Listener_config_Domain">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body><![CDATA[#[payload]]]></http:body>
+                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="mongodbsapi-config" />
+    </flow>
+    <flow name="put:\updateasset:application\json:mongodbsapi-config">
+		<flow-ref doc:name="Flow Reference" doc:id="5e155993-ac08-44a1-9057-2611711df849" name="updateasset"/>
+    </flow>
+    <flow name="delete:\deleteasset:mongodbsapi-config">
+		<flow-ref doc:name="Flow Reference" doc:id="de182402-739e-4417-8974-3f89476f13ac" name="deleteasset"/>
+    </flow>
+    <flow name="get:\getasset:mongodbsapi-config">
+		<flow-ref doc:name="Flow Reference" doc:id="97e1602c-8c35-410f-b37b-9b205467d89b" name="getasset"/>
+    </flow>
+    <flow name="get:\getobjectkey:mongodbsapi-config">
+		<flow-ref doc:name="Flow Reference" doc:id="367bc3ef-7cbd-4b03-9f89-8573f0861937" name="getobjectkey"/>
+    </flow>
+    <flow name="post:\storeasset:application\json:mongodbsapi-config">
+		<flow-ref doc:name="Flow Reference" doc:id="c45d3992-ff8f-4d83-bcaa-337895046b81" name="storeassetFlow"/>
+    </flow>
+</mule>

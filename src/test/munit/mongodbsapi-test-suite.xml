@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="mongodbsapi-test-suite.xml" />
+	<munit:test name="mongodbsapi-test-suite-mongodbsapi-mainTest" doc:id="3b05c8af-52e9-440d-bb71-179a04eeae10" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="65010135-8a7a-4a40-b9de-dfeca6fe46d2" processor="apikit:router">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to mongodbsapi-main" doc:id="5264a63c-8845-45d0-bf5a-c08c6f0f51cd" name="mongodbsapi-main"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-mongodbsapi-consoleTest" doc:id="a5819a4f-1b98-4240-9435-ffd2a9b4794d" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="1398b5a5-ce3f-4050-baf1-8a00142df8b1" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to mongodbsapi-console" doc:id="882f08e8-5a3e-4996-9876-d0181ef93ae2" name="mongodbsapi-console"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-put:\updateasset:application\json:mongodbsapi-configTest" doc:id="d852ed8c-0797-4911-9b09-4781dbee12d4" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="32b40579-d8c0-45ec-9034-974249611193" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\updateasset:application\json:mongodbsapi-config" doc:id="1ca1f980-46aa-4330-82f5-7d384a6de15e" name="put:\updateasset:application\json:mongodbsapi-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-delete:\deleteasset:mongodbsapi-configTest" doc:id="297f3d3f-c0e5-453d-b019-70bc4f84a692" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="4cd00816-9930-4cf4-bbf6-6619fee37b00" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to delete:\deleteasset:mongodbsapi-config" doc:id="0a581b1e-788b-4373-ac84-2480f2c5b7b6" name="delete:\deleteasset:mongodbsapi-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-get:\getasset:mongodbsapi-configTest" doc:id="57fd1c8a-ff04-41fd-89f9-9b877e74a3ec" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="739463a1-48e8-4c5e-81c7-87d33db28b76" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\getasset:mongodbsapi-config" doc:id="ba12075c-d3da-470f-982f-ddf899da888f" name="get:\getasset:mongodbsapi-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-get:\getobjectkey:mongodbsapi-configTest" doc:id="065c34ae-dbb2-4e2e-ace6-2487a5cdf528" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="462c7e0f-1187-4c94-8927-857743f1f8db" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\getobjectkey:mongodbsapi-config" doc:id="8306d872-955a-40aa-ba6c-d36daad53051" name="get:\getobjectkey:mongodbsapi-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-post:\storeasset:application\json:mongodbsapi-configTest" doc:id="6b6aaf95-0538-4fed-94ff-c8742343e74d" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="a43f41f7-d64d-40d0-98dd-46c54307fc1c" processor="apikit:router" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\storeasset:application\json:mongodbsapi-config" doc:id="0b641100-5ac1-428c-a849-aefa398bc867" name="post:\storeasset:application\json:mongodbsapi-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="mongodbsapi-test-suite-mongodbsapi-mainTest1" doc:id="9dc951d6-7f08-41ae-884e-52acf2af1d14" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="2c539444-72bd-479f-a275-2bbf4445d37c" processor="apikit:router">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="mongodbsapi-config" attributeName="config-ref" />
+				</munit-tools:with-attributes>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<try doc:name="Try" doc:id="00c9f818-af71-433d-8893-674c36885529" >
+				<flow-ref doc:name="Flow-ref to mongodbsapi-main" doc:id="1fc57699-3275-4a28-86f7-5d58bdeb158f" name="mongodbsapi-main" />
+				<error-handler >
+					<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="11ba40d3-36ce-4efa-8312-7d1ab411827b" >
+						<logger level="INFO" doc:name="Logger" doc:id="d9feac6b-7704-4b10-a604-d95a97276c55" message="Continue"/>
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="140978aa-d986-4aa7-86aa-0c49dc8cd0fc" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+</mule>

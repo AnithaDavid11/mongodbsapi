@@ -1,0 +1,46 @@
+{
+    "id": null,
+    "items": [
+        {
+            "exception": null,
+            "message": null,
+            "payload": {
+                "assetId": 413256,
+                "assetMimeType": "image/jpeg",
+                "assetName": "southdowns_1920x1080.jpg",
+                "status": "New",
+                "expirationDate": "9999-12-31T23:59:59.999Z",
+                "assetPayload": {},
+                "createDate": "2021-06-11T12:06:00.102Z",
+                "updateDate": "2022-12-24T12:06:00.123Z",
+                "_id": {
+                    "$oid": "63acabde9b45b85a76810dc1"
+                }
+            },
+            "id": null,
+            "successful": true,
+            "statusCode": null
+        },
+        {
+            "exception": null,
+            "message": null,
+            "payload": {
+                "assetId": 413257,
+                "assetMimeType": "image1/jpeg",
+                "assetName": "southdowns1_1920x1080.jpg",
+                "status": "New",
+                "expirationDate": "9999-12-31T23:59:59.999Z",
+                "assetPayload": {},
+                "createDate": "2021-05-11T12:06:00.102Z",
+                "updateDate": "2022-11-24T12:06:00.123Z",
+                "_id": {
+                    "$oid": "63acabde9b45b85a76810dc2"
+                }
+            },
+            "id": null,
+            "successful": true,
+            "statusCode": null
+        }
+    ],
+    "successful": true
+}
